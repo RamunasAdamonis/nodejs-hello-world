@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
 
                 var request = new sql.Request();
     
-                request.query('select Id, Name from Students', function (err, recordset) {
+                request.query('select Id, Name from MyTable', function (err, recordset) {
                 
                     if (err) {
                         console.log(err)
