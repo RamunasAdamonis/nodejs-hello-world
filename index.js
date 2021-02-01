@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
           return console.log(err);
         }
 
-        data = data.replace('{{title}}', process.env.Pavadinimas?? 'Pridekite "Environment variable: Pavadinimas"');
+        data = data.replace('{{title}}', process.env.Pavadinimas ?? 'Pridekite "Environment variable: Pavadinimas"');
         
         var config = {
             user: process.env.Sql_User,
