@@ -15,9 +15,9 @@ app.get('/', (req, res) => {
           return console.log(err);
         }
 
-        var title = process.env.Pavadinimas
+        var title = process.env.Puslapio_Pavadinimas
         if (!title){
-            title = 'Pridekite "Environment variable: Pavadinimas"'
+            title = 'Pridekite "Environment variable: Puslapio_Pavadinimas"'
         }
         
 
@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
 
                 var request = new sql.Request();
     
-                request.query('select Id, Name from MyTable', function (err, recordset) {
+                request.query('SELECT Id, Pavadinimas, Kiekis from dbo.ManoLentele', function (err, recordset) {
                 
                     if (err) {
                         console.log(err)
@@ -55,6 +55,7 @@ app.get('/', (req, res) => {
                         <tr>
                           <th>Id</th>
                           <th>Pavadinimas</th>
+                          <th>Kiekis</th>
                         </tr>`
 
                         recordset.recordset.forEach(property => 
@@ -62,7 +63,8 @@ app.get('/', (req, res) => {
                                 tableHtml += `
                                 <tr>
                                   <td data-th="Id">${property.Id}</td>
-                                  <td data-th="Name">${property.Name}</td>
+                                  <td data-th="Pavadinimas">${property.Pavadinimas}</td>
+                                  <td data-th="Kiekis">${property.Kiekis}</td>
                                 </tr>`
                             })
 
